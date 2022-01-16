@@ -1,0 +1,42 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@babel/preset-react": "^7.16.7",
+        "@tailwindcss/aspect-ratio": "^0.4.0",
+        "@tailwindcss/forms": "^0.4.0",
+        "autoprefixer": "^10.4.2",
+        "axios": "^0.21",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.4.5",
+        "tailwindcss": "^3.0.15"
+    },
+    "dependencies": {
+        "@headlessui/react": "^1.4.3",
+        "@heroicons/react": "^1.0.5",
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-react": "^0.8.0",
+        "@inertiajs/progress": "^0.2.7",
+        "@types/react": "^17.0.38",
+        "classnames": "^2.3.1",
+        "formik": "^2.2.9",
+        "ldbutton": "^1.0.2",
+        "prop-types": "^15.8.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-hot-toast": "^2.2.0",
+        "react-modal": "^3.14.4",
+        "react-phone-number-input": "^3.1.44",
+        "react-tsparticles": "^1.39.0",
+        "yup": "^0.32.11"
+    }
+}
