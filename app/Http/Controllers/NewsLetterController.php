@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreNewsLetterRequest;
 use App\Models\NewsLetter;
+use App\Mail\NewsLetterSaved;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\StoreNewsLetterRequest;
 
 class NewsLetterController extends Controller
 {
@@ -28,6 +30,9 @@ class NewsLetterController extends Controller
             $newsLetter = NewsLetter::fromRequest($validated);
             $request->session()->flash('message', "Your request have been successfully save. An email will be send you to $newsLetter->email");
             $request->session()->flash('type', 'success');
+
+            Mail::to($validated['email'])
+                ->queue(new NewsLetterSaved($newsLetter));
         }
 
         return Redirect::route('welcome');

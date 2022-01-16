@@ -7,7 +7,7 @@ export const newsletterValidationSchema = Yup.object({
     .required("Email is required")
     //https://help.instapage.com/hc/en-us/articles/360036003074-Business-email-validation
     .matches(
-      "^(?!.+@(gmail|google|yahoo|outlook|hotmail|msn)..+)(.+@.+..+)$",
+      "^(?!.+@(google|yahoo|outlook|hotmail|msn)..+)(.+@.+..+)$",
       "Please enter a business email"
     ),
   firstname: Yup.string()
