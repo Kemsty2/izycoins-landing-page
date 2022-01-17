@@ -32,7 +32,7 @@ class NewsLetterController extends Controller
             $request->session()->flash('type', 'success');
 
             Mail::to($validated['email'])
-                ->queue(new NewsLetterSaved($newsLetter));
+                ->send(new NewsLetterSaved($newsLetter));
         }
 
         return Redirect::route('welcome');

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@inertiajs/inertia-react";
 
-export default function ErrorPage({ status }) {
+export default function Error({ status }) {
   const title = {
     503: "503: Service Unavailable",
     500: "500: Server Error",
