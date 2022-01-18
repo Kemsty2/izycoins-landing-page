@@ -1,7 +1,5 @@
 import { useMemo, useCallback } from "react";
-import {
-  getCountryCallingCode,
-} from "react-phone-number-input/input";
+import { getCountryCallingCode } from "react-phone-number-input/input";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 
 const DIVIDER_STYLE = {
@@ -27,14 +25,15 @@ function CountrySelect({ value, onChange, options, ...rest }) {
     [onChange]
   );
 
-  const selectedOption = useMemo(() => {
-    return getSelectedOption(options, value);
-  }, [options, value]);
-
   // "ZZ" means "International".
   // (HTML requires each `<option/>` have some string `value`).
   return (
-    <select {...rest} value={value || "ZZ"} onChange={onChange_} className="PhoneInputCountrySelect bg-gray-300 pl-4 pr-12 sm:text-sm">
+    <select
+      {...rest}
+      value={value || "ZZ"}
+      onChange={onChange_}
+      className="PhoneInputCountrySelect bg-gray-300 pl-4 pr-12 sm:text-sm"
+    >
       {options.map(({ value, label, divider }) => (
         <option
           key={divider ? "|" : value || "ZZ"}
@@ -64,11 +63,7 @@ export default function CustomSelectCountry({
 
   return (
     <div className="PhoneInputCountry">
-      <CountrySelect
-        {...rest}
-        value={value}
-        options={options}
-      />
+      <CountrySelect {...rest} value={value} options={options} />
 
       {/* Either a Unicode flag icon. */}
       {unicodeFlags && value && (

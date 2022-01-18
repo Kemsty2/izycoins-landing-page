@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { XIcon, BellIcon } from "@heroicons/react/solid";
+import { XCircleIcon, BellIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
 import classNames from "classnames";
 import { Inertia } from "@inertiajs/inertia";
@@ -47,14 +47,14 @@ export default function Panel({ isOpen, close }) {
                   leaveTo="opacity-0"
                 >
                   <div className="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4">
-                    <button
+                    {/* <button
                       type="button"
                       className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                       onClick={close}
                     >
                       <span className="sr-only">Close panel</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
+                    </button> */}
                   </div>
                 </Transition.Child>
                 <div className="h-full flex flex-col py-6 bg-primary-cobalt-blue-50 dark:bg-primary-cobalt-blue-700 shadow-xl overflow-y-scroll">
@@ -99,32 +99,45 @@ export default function Panel({ isOpen, close }) {
                           >
                             <ContactForm />
 
-                            <button
-                              type="submit"
-                              disabled={formik.isSubmitting}
-                              className={classNames(
-                                "ld-ext-right flex items-center justify-between rounded-full border border-transparent shadow-sm px-4 py-2 bg-primary-mn-blue text-base font-medium text-white sm:ml-3 sm:w-auto sm:text-sm",
-                                {
-                                  "running bg-gray-400 w-20":
-                                    formik.isSubmitting,
-                                  "hover:bg-primary-mn-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-mn-blue-light":
-                                    !formik.isSubmitting,
-                                }
-                              )}
-                            >
-                              <div className="ld ld-ring ld-spin"></div>
-                              <BellIcon className="w-6 h-6" />
-                              <span
+                            <div className="flex gap-1">
+                              <button
+                                type="button"
+                                onClick={close}
+                                disabled={formik.isSubmitting}
+                                className="flex items-center justify-between mt-3 w-4/12 rounded-full border border-gray-300 shadow-sm px-4 py-2 bg-white
+                                text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2
+                                focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm disabled:bg-gray-400"
+                              >
+                                <XCircleIcon className="w-6 h-6 mr-2 -ml-1" />
+                                <span>Cancel</span>
+                              </button>
+                              <button
+                                type="submit"
+                                disabled={formik.isSubmitting}
                                 className={classNames(
-                                  "text-sm transition-all",
+                                  "ld-ext-right flex items-center w-8/12 justify-between rounded-full border border-transparent shadow-sm px-4 py-2 bg-primary-mn-blue text-base font-medium text-white sm:ml-3 sm:w-auto sm:text-sm",
                                   {
-                                    hidden: formik.isSubmitting,
+                                    "running bg-gray-400":
+                                      formik.isSubmitting,
+                                    "hover:bg-primary-mn-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary-mn-blue-light":
+                                      !formik.isSubmitting,
                                   }
                                 )}
                               >
-                                Notify me when there's some action
-                              </span>
-                            </button>
+                                <div className="ld ld-ring ld-spin"></div>
+                                <BellIcon className="w-6 h-6" />
+                                <span
+                                  className={classNames(
+                                    "text-sm transition-all",
+                                    {
+                                      hidden: formik.isSubmitting,
+                                    }
+                                  )}
+                                >
+                                  Notify me when there's some action
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </form>
                       )}

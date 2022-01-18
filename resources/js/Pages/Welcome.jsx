@@ -174,8 +174,8 @@ function Welcome() {
               </button>
             </div>
             <img
-              className="sm:w-6/12 md:w-5/12 w-9/12 mt-4 sm:mt-0 order-1 sm:order-2"
-              src="/images/image-investment.svg"
+              className="sm:w-6/12 md:w-5/12 w-8/12 mt-4 sm:mt-0 order-1 sm:order-2"
+              src="/images/image-investment.png"
               alt="Illustration"
             ></img>
           </div>
