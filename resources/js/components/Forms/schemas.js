@@ -33,7 +33,7 @@ export const newsletterValidationSchema = Yup.object({
       [
         "Portfolio Manager",
         "Fund Manager",
-        "CE0 / CIO",
+        "CEO / CIO",
         "Investors",
         "Individual",
         "Others",
