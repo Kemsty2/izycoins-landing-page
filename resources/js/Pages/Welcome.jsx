@@ -134,7 +134,7 @@ function Welcome() {
                       ? "/images/logo_default_white.png"
                       : "/images/logo_default.png"
                   }
-                  className="w-12"
+                  className="w-12 sm:w-20"
                   alt="easybank logo"
                 />
               </div>
@@ -178,7 +178,7 @@ function Welcome() {
               </button>
             </div>
             <img
-              className="w-6/12 order-1 sm:order-2"
+              className="w-6/12 sm:w-4/12 order-1 sm:order-2"
               src="/images/image-investment.png"
               alt="Illustration"
             ></img>
