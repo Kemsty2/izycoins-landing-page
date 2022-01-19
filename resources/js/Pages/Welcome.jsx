@@ -121,20 +121,24 @@ function Welcome() {
         <div className="bg-header-desktop absolute w-full h-full bg-no-repeat hidden lg:block bg-left -right-42.6%"></div>
         {/* <div className="bg-image-mockups absolute z-20 w-full h-full bg-no-repeat bg-top -top-12 md:-top-16 bg-custom-mobile-mockup-size lg:hidden"></div> */}
         <div className="container h-full flex-grow sm:h-screen relative z-20">
-          <Particles className="particles" params={particlesoptions} />
+          <Particles
+            className="relative -z-0 top-0 right-0 left-0 bottom-24"
+            params={particlesoptions}
+          />
           <div className="h-full w-full flex justify-center sm:justify-between items-center pb-4 lg:pb-0 flex-col sm:flex-row">
-            <div className="h-1/2 flex order-2 sm:order-1 flex-col justify-center items-center text-center lg:items-start lg:text-left w-80 md:w-96">
-              <div className="mt-5 lg:mt-6 w-20 sm:w-24 flex flex-row items-center gap-2 sm:self-center">
+            <div className="h-1/2 max-w-prose flex order-2 sm:order-1 flex-col justify-between sm:justify-center items-center text-center lg:items-start lg:text-left max-w-80 sm:w-96">
+              <div className="mt-5 lg:mt-6 flex flex-row items-center justify-center gap-2 sm:self-center">
                 <img
                   src={
                     theme === "light"
                       ? "/images/logo_default_white.png"
                       : "/images/logo_default.png"
                   }
+                  className="w-12"
                   alt="easybank logo"
                 />
               </div>
-              <h1 className="text-4xl sm:text-6xl md:text-5xl text-primary-dark-blue dark:text-white pb-5 self-center">
+              <h1 className="text-3xl sm:text-6xl md:text-5xl text-primary-dark-blue dark:text-white pb-5 self-center">
                 Coming Soon
               </h1>
               <div className="flex flex-row justify-between mb-1 w-full">
@@ -153,7 +157,7 @@ function Welcome() {
               </div>
 
               <p
-                className="text-gray-700 text-base sm:text-xl leading-5 mb-7 text-justify dark:text-neutral-white"
+                className="text-gray-700 text-base sm:text-xl leading-5 mb-7 text-justify dark:text-neutral-white break-words"
                 style={{ letterSpacing: "-1.25px" }}
               >
                 IzyCoins is a service provider engaged in the business of
@@ -174,7 +178,7 @@ function Welcome() {
               </button>
             </div>
             <img
-              className="sm:w-6/12 md:w-5/12 w-6/12 mt-4 sm:mt-0 order-1 sm:order-2"
+              className="w-6/12 order-1 sm:order-2"
               src="/images/image-investment.png"
               alt="Illustration"
             ></img>
