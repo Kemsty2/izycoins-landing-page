@@ -51,11 +51,7 @@ const ContactForm = () => {
         name="sector"
         options={[
           { value: "", label: "Choose Your Sector" },
-          { value: "Asset Management", label: "Asset Management" },
-          { value: "Hedge Funds", label: "Hedge Funds" },
-          { value: "Family Office", label: "Family Office" },
           { value: "Personal Investment", label: "Personal Investment" },
-          { value: "Others", label: "Others" },
         ]}
       />
 
@@ -66,12 +62,7 @@ const ContactForm = () => {
         name="position"
         options={[
           { value: "", label: "Choose Your Position" },
-          { value: "Portfolio Manager", label: "Portfolio Manager" },
-          { value: "Fund Manager", label: "Fund Manager" },
-          { value: "CEO / CIO", label: "CEO / CIO" },
-          { value: "Investors", label: "Investors" },
           { value: "Individual", label: "Individual" },
-          { value: "Other", label: "Other" },
         ]}
       />
     </>
