@@ -2,9 +2,9 @@
 
 namespace App\Exceptions;
 
-use Throwable;
-use Inertia\Inertia;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Inertia\Inertia;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -49,6 +49,28 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         $response = parent::render($request, $e);
+        $statusCode = $response->getStatusCode();
+
+        $content = null;
+
+        if ($request->is('api/*')) {
+            switch ($statusCode) {
+                case 400:
+                    $content = [
+                        'message' => 'Bad request please take a look at your input',
+                        'details' => $e->original['errors'],
+                    ];
+                    break;
+                default:
+                    $content = [
+                        'message' => 'An unknown error occurred',
+                        'details' => $e->getMessage(),
+                    ];
+                    $statusCode = 500;
+                    break;
+            }
+            return response()->json($content, $statusCode);
+        }
 
         if (!app()->environment(['local', 'testing']) && in_array($response->getStatusCode(), [500, 503, 404, 403])) {
             return Inertia::render('Error', ['status' => $response->getStatusCode()])

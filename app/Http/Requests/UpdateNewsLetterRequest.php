@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateNewsLetterRequest extends FormRequest
@@ -13,7 +14,7 @@ class UpdateNewsLetterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,18 @@ class UpdateNewsLetterRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'status' => ['required', Rule::in(['validated', 'rejected'])],
+            'message' => ['required', 'max:255']
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'status.required' => "Status is required",
+            'status.in' => "Status must be 'Validated' or 'Reject'",
+            'message.required' => "Message is required",
+            'message.max' => "Message mush be less than 255 characters"
         ];
     }
 }
