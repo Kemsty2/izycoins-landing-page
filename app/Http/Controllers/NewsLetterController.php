@@ -31,6 +31,17 @@ class NewsLetterController extends Controller
     }
 
     /**
+     * Get an invitation request by his identifier
+     */
+    function fetch($id){
+        $newsLetter = NewsLetter::find($id);
+        if ($newsLetter == null) {
+            return response()->json(['message' => "Invitation with id $id not found"], 404);
+        }
+        return response()->json(new NewsLetterResource($newsLetter));
+    }
+
+    /**
      * Validate an invitation
      * @param \Illuminate\Http\UpdateNewsLetterRequest
      * @return \Illuminate\Http\Response

@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/newsletters', [NewsLetterController::class, 'list'])->name('index');
+Route::get('/newsletters/{id}', [NewsLetterController::class, 'fetch'])->name('fetch');
 Route::post('/newsletters/{id}', [NewsLetterController::class, 'update'])->name('update');
